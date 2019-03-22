@@ -44,9 +44,64 @@ input {
   margin-bottom: 0;
 }
 
+#welcomeBox {
+  max-width: 25rem;
+  margin:150px auto;
+  align-items: center;
+  border: 1px solid lightgrey;
+  box-shadow: 0 8px 6px -6px #000000;
+}
+
 @media screen and (max-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
+  }
+
+  .card {
+    width: initial;
+  }
+
+  #welcomeForm {
+    max-width: none;
+  }
+  
+  #welcomeBox {
+    max-width: none;
+    margin: 150px auto;
+    align-items: center;
+    border: 1px solid lightgrey;
+    box-shadow: 0 8px 6px -6px #000000;
+  }
+
+  #welcomeBox p {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  #welcomeBox button {
+    margin: 0 20px;
+    transform: scale(1.25);
+  }
+
+  #modalCreate, #modalSignin {
+    max-width: 92vh;
+  }
+
+  #modalCreate h5, #modalSignin h5 {
+    font-size: 2rem;
+  }
+
+  #modalCreate .modal-body, #modalSignin .modal-body {
+    font-size: 1.25rem;
+  }
+
+  #firstname {
+    margin-bottom: 15px;
+  }
+
+  #modalCreate .modal-footer button, #modalSignin .modal-footer button {
+    margin: 0 20px;
+    transform: scale(1.25);
   }
 }
 

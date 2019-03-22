@@ -36,10 +36,10 @@ $(document).ready(function () {
             buttond.attr("data-id", id);
             buttond.addClass("btn btn-sm btn-danger fa fa-trash-o deleteSt");
 
-            var studentText = $("<span>").html("  " + firstName + " " + lastName + "\xa0\xa0").css({"font-weight": "bold", "font-size": "20px", "display": "inline-block", "padding-left": "10px", "max-width": "260px", "vertical-align": "middle",  "white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}).addClass("listedStudent");
+            var studentText = $("<span>").html("  " + firstName + " " + lastName + "\xa0\xa0").css({"font-weight": "bold", "display": "inline-block", "vertical-align": "middle",  "white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}).addClass("listedStudent");
 
             // Create Avatar
-            var studentAvatar = $("<img>").attr("src", result[i].avatar).css({"width": "75px", "border-right": "1px dotted black", "padding": "5px", "display": "inline-block"});
+            var studentAvatar = $("<img>").attr("src", result[i].avatar);
 
             var student = $("<li>").addClass("studentList").attr("data-id", id).css({"width": "90%", "border": "1px solid black", "border-radius": "25px"});
             
@@ -47,7 +47,7 @@ $(document).ready(function () {
             
             if (unit1Complete && unit2Complete) {
 
-                var completeCap = $("<span>").addClass("fa fa-star completeCap").css({"color": "gold", "font-size": "20px", "display": "inline-block", "vertical-align": "middle", "padding-left": "10px"});
+                var completeCap = $("<span>").addClass("fa fa-star completeCap");
                 student.append(studentAvatar);
                 student.append(studentText);
                 student.prepend(completeCap);
@@ -97,6 +97,7 @@ $(document).ready(function () {
                     $(".studentProgress").css({"display": "block", "border": "none"});
                     $("#backToStudents").css("display", "inline-block");
                     $("#addStudentBtn").css("display", "none");
+                    $("#newStudentBtn").css("display", "none");
                 } else if ($(window).width() <= 480) {
                     $("#studentAvatar").attr("src", result.avatar);
                     $("#studentName").html("<p style='font-size: 24px; font-weight: bold'>" + result.firstName + " " + result.lastName + "</p><p id='profile-btns'><button class='btn btn-sm btn-outline-primary changeSt change-btn easyRead' style='font-size: 16px' data-toggle='modal' data-target='#exampleModal1'><span class='fa fa-pencil-square-o'></span> Edit Profile</button>" + "\xa0" + "<button class='btn btn-sm btn-outline-danger deleteSt easyRead' data-id='" + id + "' style='font-size: 16px'><span class='fa fa-trash-o'></span> Remove Student</button></p>");
@@ -301,13 +302,13 @@ function createUnits(id) {
 
     $.post("/unit1/" + id, function(result) {
         console.log(result);
-    }).fail(function(err){
+    }).catch(function(err){
         console.log("Whoops! Something went wrong.");
     });
 
     $.post("/unit2/" + id, function(result) {
         console.log(result);
-    }).fail(function(err){
+    }).catch(function(err){
         console.log("Whoops! Something went wrong.");
     });
 
@@ -327,7 +328,7 @@ $(window).on("resize", function() {
         $(".studentList").each(function() {
             $(this).css({"cursor": "pointer", "background-color": "white"});
             $(this).css("box-shadow", "none");
-            $(".completeCap", this).css("color", "gold");
+            // $(".completeCap", this).css("color", "gold");
         });
 
     } else {
@@ -346,9 +347,7 @@ $(window).on("resize", function() {
     }
 
     if ($(window).width() <= 480) {
-        $(".listedStudent").css("font-size", "15px");
-    } else {
-        $(".listedStudent").css("font-size", "20px");
+        // $(".listedStudent").css("font-size", "15px");
     }
 });
 
@@ -358,6 +357,7 @@ function checkWindowSize() {
         $("#students").css("display", "block");
         $(".studentProgress").css("display", "none");
         $("#toLetters").attr("href", "#");
+        // $(".listedStudent").css("font-size", "1.5rem");
     } else {
         $("#addStudentBtn").html("Add Student");
         $("#toLetters").attr("href", "/letter/main");
@@ -366,14 +366,13 @@ function checkWindowSize() {
     if ($(window).width() <= 767) {
         $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#toLetters").attr("href", "#");
+        // $(".listedStudent").css("font-size", "1.5rem");
     } else {
         $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
     }
 
     if ($(window).width() <= 480) {
-        $(".listedStudent").css("font-size", "15px");
+        // $(".listedStudent").css("font-size", "15px");
         $("#toLetters").attr("href", "#");
-    } else {
-        $(".listedStudent").css("font-size", "20px");
     }
 }

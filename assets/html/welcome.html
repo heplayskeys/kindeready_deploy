@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="welcomeForm" class="container">
-    <div class="card mb-3 text-center" style="max-width: 25rem; margin:150px auto; align-items: center; border: 1px solid lightgrey; box-shadow: 0 8px 6px -6px #000000">
+    <div id="welcomeBox" class="card mb-3 text-center">
       <div class="card-header" style="width: 100%">
         <h1>KindeReady!</h1>
       </div>
@@ -28,10 +28,10 @@
 
     <!-- modal for sign in -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div id="modalSignin" class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Sign-In to your KindeReady account:</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Sign-In to KindeReady:</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
 
@@ -65,7 +65,7 @@
 
     <!-- modal for create account -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div id="modalCreate" class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Register your KindeReady account:</h5>
@@ -74,19 +74,19 @@
 
           <div class="modal-body">
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-md-12">
                 <div class="row">
-                  <div class="col-sm-6 text-left createAccount">
+                  <div class="col-md-6 text-left createAccount">
                     <label class="welcomeInLabel" for="firstname"><b>First: </b></label>
                     <input type="text" placeholder="Enter Firstname" id="firstname" style="width: 100%" required>
                   </div>
 
-                  <div class="col-sm-6 text-left createAccount">
+                  <div class="col-md-6 text-left createAccount">
                     <label class="welcomeInLabel" for="lastname"><b>Last: </b></label>
                     <input type="text" placeholder="Enter Lastname" id="lastname" style="width: 100%" required>&nbsp;&nbsp;&nbsp;
                   </div>
                   
-                  <div class="col-sm-12 text-left createAccount">
+                  <div class="col-md-12 text-left createAccount">
                     <label class="welcomeInLabel" for="email"><b>Email: </b></label>
                     <input type="text" placeholder="Enter Email" id="email" style="width: 100%" required>
 

@@ -44,8 +44,6 @@ label {
 
 #newStudentBtn {
     display: none;
-    position: absolute;
-    right: 10px;
 }
 
 #logoutUserBtn {
@@ -60,6 +58,34 @@ label {
 
 #onlyOnDesktop, #desktopOnly {
     display: none;
+}
+
+.completeCap {
+    color: gold;
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.listedStudent {
+    font-size: 2rem;
+    padding-left: 10px;
+    max-width: 90%;
+}
+
+.studentList img {
+    width: 75px;
+    border-right: 1px dotted black;
+    padding: 5px;
+    display: inline-block;
+}
+
+@media screen and (max-width: 1199.5px) {
+
+    .listedStudent {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -96,7 +122,6 @@ label {
     }
 }
 
-
 @media screen and (max-width: 767px) {
 
     #siteTitle {
@@ -109,10 +134,32 @@ label {
 
     #logoutUserBtn {
         text-align: center;
+        margin-bottom: 15px;
     }
 
-    #f1, #f2, #f3 {
+    #logout {
+        transform: scale(1.25);
+    }
+
+    #f1, #f2, #f3, #ef1, #ef2, #ef3 {
         width: 100%;
+    }
+
+    #modalAdd, #modalUpdate {
+        max-width: 92vh;
+    }
+
+    #modalAdd h5, #modalUpdate h5 {
+        font-size: 2rem;
+    }
+
+    #modalAdd .modal-body, #modalUpdate .modal-body {
+        font-size: 1.25rem;
+    }
+
+    #modalAdd .modal-footer button, #modalUpdate .modal-footer button {
+        margin: 0 20px;
+        transform: scale(1.25);
     }
 
     .form-check {
@@ -120,8 +167,24 @@ label {
         margin-bottom: 10px;
     }
 
+    #studentHeader {
+        font-size: 2rem;
+        display: inline-block;
+    }
+
     #newStudentBtn {
         display: inline-block;
+        transform: scale(1.5);
+        float: right;
+        margin-top: 4px;
+    }
+
+    #backToStudents {
+        display: none;
+        transform: scale(1.5);
+        float: right;
+        margin-top: 4px;
+        margin-right: 10px;
     }
 
     #getStartedMsg > p {
@@ -138,6 +201,17 @@ label {
         color: red;
         float: right;
     }
+
+    .listedStudent {
+        font-size: 2rem;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .listedStudent {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -150,5 +224,15 @@ label {
         bottom: 10px;
         font-size: 0.8rem;
         color: red;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .listedStudent {
+        font-size: 15px;
+    }
+
+    .studentList img {
+        width: 60px;
     }
 }
