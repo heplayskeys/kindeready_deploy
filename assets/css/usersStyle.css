@@ -222,6 +222,10 @@ label {
     #studentAvatar {
         width: 25%;
     }
+
+    #desktopText {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 560px) {
