@@ -81,6 +81,10 @@ label {
     display: inline-block;
 }
 
+#studentAvatar {
+    width: 33%;
+}
+
 @media screen and (max-width: 1199.5px) {
 
     .listedStudent {
@@ -214,6 +218,10 @@ label {
     #currentStudent {
         padding: 0;
     }
+
+    #studentAvatar {
+        width: 25%;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -223,7 +231,7 @@ label {
 }
 
 @media screen and (max-width: 480px) {
-    
+
     #onlyOnDesktop {
         display: block;
         bottom: 10px;

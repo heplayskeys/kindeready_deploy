@@ -186,6 +186,10 @@ body {
         padding: 0 44px;
     }
 
+    .activities p {
+        font-size: 40px;
+    }
+
     #act1, #act2, #act3, #summary {
         width: 442px;
     }
