@@ -302,13 +302,13 @@ function createUnits(id) {
     $.post("/unit1/" + id, function(result) {
         console.log(result);
     }).fail(function(err){
-        alert("Whoops! Something went wrong.")
+        console.log("Whoops! Something went wrong.");
     });
 
     $.post("/unit2/" + id, function(result) {
         console.log(result);
     }).fail(function(err){
-        alert("Whoops! Something went wrong.")
+        console.log("Whoops! Something went wrong.");
     });
 
     location.reload();

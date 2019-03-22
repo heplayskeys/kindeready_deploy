@@ -56,7 +56,7 @@
                                     <div class="col-lg-12 studentProgress">
                                         <a id="toLetters" href="/letter/main" data-unit="2">
                                             <h6 style="color: black">Letter Recognition:</h6>
-                                        </a>
+                                        </a><span id="onlyOnDesktop">*desktop only</span>
                                         <div class="progress">
                                             <div id="letRec" class="progress-bar progress-bar-striped progress-bar-animated bg-success"
                                                 role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
@@ -120,8 +120,8 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect1" >
-                                                    <span id="correct1" ><img src="../../../images/shapes_colors/correct.png"/> <input class="form-control" type="text" placeholder="SQUARE"  style="width:30%; display: inline" readonly></span>
-                                                    <select id="1" name="SQUARE" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <span id="correct1" ><img src="../../../images/shapes_colors/correct.png"/> <input class="form-control" type="text" placeholder="SQUARE"  style="max-width: 35%; font-size: 0.7rem; display: inline" readonly></span>
+                                                    <select id="1" name="SQUARE" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>CIRCLE</option>
                                                         <option>TRIANGLE</option>
@@ -135,8 +135,8 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect2" >
-                                                    <span id="correct2" ><img src="../../../images/shapes_colors/correct.png"/> <input class="form-control" type="text" placeholder="CIRCLE"  style="display: inline; width:30%" readonly></span>
-                                                    <select id="2" name="CIRCLE" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <span id="correct2" ><img src="../../../images/shapes_colors/correct.png"/> <input class="form-control" type="text" placeholder="CIRCLE"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
+                                                    <select id="2" name="CIRCLE" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>CIRCLE</option>
                                                         <option>TRIANGLE</option>
@@ -150,8 +150,8 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect3" >
-                                                    <span id="correct3" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct3" class="form-control" type="text" placeholder="RECTANGLE"  style="display: inline; width:30%" readonly></span>
-                                                    <select id="3" name="RECTANGLE" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <span id="correct3" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct3" class="form-control" type="text" placeholder="RECTANGLE"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
+                                                    <select id="3" name="RECTANGLE" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>CIRCLE</option>
                                                         <option>TRIANGLE</option>
@@ -165,8 +165,8 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect4" >
-                                                    <span id="correct4" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct4" class="form-control" type="text" placeholder="TRIANGLE"  style="display: inline; width:30%" readonly></span>
-                                                    <select id="4" name="TRIANGLE" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline">
+                                                    <span id="correct4"><img src="../../../images/shapes_colors/correct.png"/> <input id="correct4" class="form-control" type="text" placeholder="TRIANGLE"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
+                                                    <select id="4" name="TRIANGLE" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline">
                                                         <option></option>
                                                         <option>CIRCLE</option>
                                                         <option>TRIANGLE</option>
@@ -185,14 +185,14 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/square_red.png"/> &#8212; 
-                                                    <select id="5" name="RED" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <select id="5" name="RED" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>BLUE</option>
                                                         <option>YELLOW</option>
                                                         <option>RED</option>
                                                         <option>GREEN</option>
                                                     </select>
-                                                    <span id="correct5" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct5" class="form-control" type="text" placeholder="RED"  style="display: inline; width:30%" readonly></span>
+                                                    <span id="correct5"><img src="../../../images/shapes_colors/correct.png"/> <input id="correct5" class="form-control" type="text" placeholder="RED"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect5" >
                                                 </p>
                                             </li>
@@ -200,14 +200,14 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/circle_yellow.png"/> &#8212; 
-                                                    <select id="6" name="YELLOW" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <select id="6" name="YELLOW" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>BLUE</option>
                                                         <option>YELLOW</option>
                                                         <option>RED</option>
                                                         <option>GREEN</option>
                                                     </select>
-                                                    <span id="correct6" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct6" class="form-control" type="text" placeholder="YELLOW"  style="display: inline; width:30%" readonly></span>
+                                                    <span id="correct6" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct6" class="form-control" type="text" placeholder="YELLOW"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect6" >
                                                 </p>
                                             </li>
@@ -215,14 +215,14 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/rectangle_blue.png"/> &#8212; 
-                                                    <select id="7" name="BLUE" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <select id="7" name="BLUE" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>BLUE</option>
                                                         <option>YELLOW</option>
                                                         <option>RED</option>
                                                         <option>GREEN</option>
                                                     </select>
-                                                    <span id="correct7" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct7" class="form-control" type="text" placeholder="BLUE"  style="display: inline; width:30%" readonly></span>
+                                                    <span id="correct7" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct7" class="form-control" type="text" placeholder="BLUE"  style="display: inline; max-width: 35%; font-size: 0.7rem" readonly></span>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect7" >
                                                 </p>
                                             </li>
@@ -230,14 +230,14 @@
                                             <li>
                                                 <p>
                                                     <img src="../../../images/shapes_colors/triangle_green.png"/> &#8212; 
-                                                    <select id="8" name="GREEN" class="form-control form-control-sm activityQuestion" style="width: 30%; display: inline-block">
+                                                    <select id="8" name="GREEN" class="form-control form-control-sm activityQuestion" style="width: auto; display: inline-block">
                                                         <option></option>
                                                         <option>BLUE</option>
                                                         <option>YELLOW</option>
                                                         <option>RED</option>
                                                         <option>GREEN</option>
                                                     </select>
-                                                    <span id="correct8" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct8" class="form-control" type="text" placeholder="GREEN"  style="display: inline; width:30%" readonly></span>
+                                                    <span id="correct8" ><img src="../../../images/shapes_colors/correct.png"/> <input id="correct8" class="form-control" type="text" placeholder="GREEN"  style="display: inline; max-width: 35%; font-size: 0.7rem;" readonly></span>
                                                     <img src="../../../images/shapes_colors/incorrect.png" id="incorrect8" >
                                                 </p>
                                             </li>
@@ -257,7 +257,8 @@
                                     <div class="col-sm-8"></div>
 
                                     <div id="post" class="col-sm-2">
-                                        <a href="/shapes/act3"><button id="nextAct" data-act="act2" class="btn btn-outline-dark btn-sm">Next &#8594;</button></a>
+                                        <a href="/shapes/act3"><button id="nextAct" data-act="act2" class="btn btn-outline-dark btn-sm">Next
+                                                &#8594;</button></a>
                                     </div>
                                 </div>
                             </div>

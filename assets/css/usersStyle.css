@@ -21,7 +21,11 @@ label {
 }
 
 #studentPane {
-    height: 68vh;
+    height: 72vh;
+}
+
+#foot {
+    margin-top: 10px;
 }
 
 .userTitle {
@@ -75,6 +79,10 @@ label {
 
 @media screen and (max-width: 768px) {
 
+    #wrapper {
+        max-width: none;
+    }
+
     #loggedInUser {
         display: none;
     }
@@ -120,10 +128,15 @@ label {
         margin-bottom: 0;
     }
 
+    #toLetters h6 {
+        display: inline-block;
+    }
+
     #onlyOnDesktop {
-        display: block;
+        display: inline-block;
         font-size: 0.8rem;
         color: red;
+        float: right;
     }
 }
 
