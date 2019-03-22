@@ -67,7 +67,7 @@ input {
   
   #welcomeBox {
     max-width: none;
-    margin: 150px auto;
+    margin: 100px auto;
     align-items: center;
     border: 1px solid lightgrey;
     box-shadow: 0 8px 6px -6px #000000;

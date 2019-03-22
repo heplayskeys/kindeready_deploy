@@ -25,7 +25,7 @@ label {
 }
 
 #foot {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .userTitle {
@@ -71,7 +71,7 @@ label {
 .listedStudent {
     font-size: 2rem;
     padding-left: 10px;
-    max-width: 90%;
+    max-width: none;
 }
 
 .studentList img {
@@ -174,7 +174,7 @@ label {
 
     #newStudentBtn {
         display: inline-block;
-        transform: scale(1.5);
+        transform: scale(1.25);
         float: right;
         margin-top: 4px;
     }
@@ -206,6 +206,14 @@ label {
         font-size: 2rem;
         max-width: none;
     }
+
+    #studentPane {
+        height: 65vh;
+    }
+
+    #currentStudent {
+        padding: 0;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -215,10 +223,7 @@ label {
 }
 
 @media screen and (max-width: 480px) {
-    .listedStudent {
-        font-size: 15px;
-    }
-
+    
     #onlyOnDesktop {
         display: block;
         bottom: 10px;

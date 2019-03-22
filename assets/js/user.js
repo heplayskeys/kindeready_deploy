@@ -41,7 +41,7 @@ $(document).ready(function () {
             // Create Avatar
             var studentAvatar = $("<img>").attr("src", result[i].avatar);
 
-            var student = $("<li>").addClass("studentList").attr("data-id", id).css({"width": "90%", "border": "1px solid black", "border-radius": "25px"});
+            var student = $("<li>").addClass("studentList").attr("data-id", id).css({"border": "1px solid black", "border-radius": "25px"});
             
             var lineBreak = $("<br>");
             
