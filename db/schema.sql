@@ -12,7 +12,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
 	/* Set ID as primary key */
-	PRIMARY KEY ( id)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE student (
@@ -23,5 +23,5 @@ CREATE TABLE student (
 	imageName MEDIUMBLOB NOT NULL,
     userID VARCHAR(255) NOT NULL,
 	/* Set ID as primary key */
-	PRIMARY KEY ( id)
+	PRIMARY KEY (id)
 );
