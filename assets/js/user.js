@@ -293,8 +293,7 @@ function checkNumStudents() {
     }
 
     if ($("#currentStudent li").length > 5) {
-        var maxHeight = $("#currentStudent li").height() * 6;
-        $("#currentStudent").css({"max-height": maxHeight, "overflow-y": "auto"});
+        $("#currentStudent").css({"max-height": "60vh", "overflow-y": "auto"});
     }
 }
 
@@ -328,7 +327,6 @@ $(window).on("resize", function() {
         $(".studentList").each(function() {
             $(this).css({"cursor": "pointer", "background-color": "white"});
             $(this).css("box-shadow", "none");
-            // $(".completeCap", this).css("color", "gold");
         });
 
     } else {
@@ -357,7 +355,6 @@ function checkWindowSize() {
         $("#students").css("display", "block");
         $(".studentProgress").css("display", "none");
         $("#toLetters").attr("href", "#");
-        // $(".listedStudent").css("font-size", "1.5rem");
     } else {
         $("#addStudentBtn").html("Add Student");
         $("#toLetters").attr("href", "/letter/main");
@@ -366,13 +363,11 @@ function checkWindowSize() {
     if ($(window).width() <= 767) {
         $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#toLetters").attr("href", "#");
-        // $(".listedStudent").css("font-size", "1.5rem");
     } else {
         $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
     }
 
     if ($(window).width() <= 480) {
-        // $(".listedStudent").css("font-size", "15px");
         $("#toLetters").attr("href", "#");
     }
 }

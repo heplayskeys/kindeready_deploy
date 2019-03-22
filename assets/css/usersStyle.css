@@ -222,10 +222,6 @@ label {
     #studentAvatar {
         width: 25%;
     }
-
-    #desktopText {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 560px) {
@@ -251,5 +247,11 @@ label {
 
     .studentList img {
         width: 60px;
+    }
+}
+
+@media screen and (max-height: 1334px) {
+    #desktopText {
+        display: none;
     }
 }
