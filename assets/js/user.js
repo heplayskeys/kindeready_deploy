@@ -329,7 +329,7 @@ $(window).on("resize", function() {
         $(".studentProgress").css("display", "none");
         $("#newStudentBtn").css("display", "none");
         $("#backToStudents").css("display", "none");
-        $("#toLetters").attr("href", "#");
+        $("#toLetters").attr("href", "");
 
         $(".studentList").each(function() {
             $(this).css({"cursor": "pointer", "background-color": "white"});
@@ -361,7 +361,7 @@ function checkWindowSize() {
         $("#addStudentBtn").html("Add");
         $("#students").css("display", "block");
         $(".studentProgress").css("display", "none");
-        $("#toLetters").attr("href", "#");
+        $("#toLetters").attr("href", "");
     } else {
         $("#addStudentBtn").html("Add Student");
         $("#toLetters").attr("href", "/letter/main");
@@ -369,12 +369,12 @@ function checkWindowSize() {
 
     if ($(window).width() <= 767) {
         // $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
-        $("#toLetters").attr("href", "#");
+        $("#toLetters").attr("href", "");
     } else {
         // $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
     }
 
     if ($(window).width() <= 480) {
-        $("#toLetters").attr("href", "#");
+        $("#toLetters").attr("href", "");
     }
 }

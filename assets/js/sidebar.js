@@ -39,8 +39,6 @@ $(document).ready(function() {
                     $.post("/student/update/" + id, {unit1Complete: true}, function(result) {
                         console.log(result);
                     });
-
-                    // sessionStorage.setItem("unit1Complete", true);
                 }
 
                 sessionStorage.setItem('unit1Prog', unit1Prog);
@@ -72,8 +70,6 @@ $(document).ready(function() {
                         $.post("/student/update/" + id, {unit2Complete: true}, function(result) {
                             console.log(result);
                         });
-
-                        // sessionStorage.setItem("unit2Complete", true);
                     }
                     
                     sessionStorage.setItem('unit2Prog', unit2Prog);
@@ -93,10 +89,7 @@ $(document).ready(function() {
         var updateVal = {
             unit: sessionStorage.getItem("currentUnit"),
             act: $(this).attr("data-act")
-        }
-
-        console.log("UpdateVal", updateVal);
-        console.log("ID", id);
+        };
 
         $.ajax({
             type: "PUT",

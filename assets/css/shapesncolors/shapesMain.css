@@ -171,7 +171,6 @@ body {
     }
 
     #onlyOnDesktop {
-        display: inline-block;
         float: right;
     }
 
@@ -184,6 +183,7 @@ body {
 
     #act1, #act2, #act3, #summary {
         width: 442px;
+        font-size: 2rem;
     }
 }
 

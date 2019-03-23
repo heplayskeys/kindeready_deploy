@@ -108,6 +108,14 @@ body {
     display: none;
 }
 
+.answerIcon {
+    margin-top: 5px;
+}
+
+select.form-control {
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 1199.5px) {
     .activities {
         padding: 0 180px;
@@ -176,12 +184,12 @@ body {
     }
 
     #onlyOnDesktop {
-        display: inline-block;
         float: right;
     }
 }
 
 @media screen and (max-width: 767.5px) {
+
     .activities {
         padding: 0 44px;
     }
@@ -204,6 +212,10 @@ body {
 
     #qDisplay {
         padding: 0;
+    }
+
+    #shapesList select, #colorsList select {
+        font-family: cursive;
     }
 }
 

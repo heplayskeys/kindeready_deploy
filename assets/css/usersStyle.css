@@ -213,7 +213,6 @@ label {
     }
 
     #onlyOnDesktop {
-        display: inline-block;
         font-size: 0.8rem;
         color: red;
         float: right;

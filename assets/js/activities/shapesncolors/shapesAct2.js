@@ -1,6 +1,5 @@
 var progress = 0;
 
-
 $(document).ready(function() {
     
     start();
@@ -15,6 +14,10 @@ $(document).ready(function() {
             checkProgress();
         } else  {
             $("#incorrect" + id).show();
+
+            if ($(window).width() <= 767) {
+                $("#" + id).css("width", "98px");
+            }
         }
     });
     
