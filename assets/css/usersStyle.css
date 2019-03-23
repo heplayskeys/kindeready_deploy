@@ -16,6 +16,7 @@ body {
 label {
     margin-bottom: 0;
 }
+
 .avatar img {
     width: 75%;
 }
@@ -178,6 +179,10 @@ label {
         margin: 0 20px;
         transform: scale(1.25);
     }
+    
+    #modalAdd #sSubmit, #modalUpdate #eSubmit {
+        margin-right: 0;
+    }
 
     .form-check {
         padding: 0;
@@ -190,7 +195,7 @@ label {
     }
 
     #newStudentBtn {
-        display: inline-block;
+        display: inherit;
         transform: scale(1.25);
         float: right;
         margin-top: 4px;
@@ -239,6 +244,18 @@ label {
         display: block;
         margin: 15px 0;
         font-size: 1.25rem;
+    }
+
+    .avatarOption {
+        display: contents;
+    }
+
+    .avatar {
+        flex-wrap: nowrap;
+    }
+
+    .avatar img {
+        width: 60%;
     }
 }
 
