@@ -1,8 +1,14 @@
 $(document).ready(function() {
 
-    var id = sessionStorage.getItem("studentId");
+    const id = sessionStorage.getItem("studentId");
     
     $(".studentProgress").css("display", "none");
+
+    if ($(window).width() <= 767) {
+        $("html, body").animate({
+            scrollTop: $(".title").offset().top + 265
+        }, "slow");
+    };
     
     $.get("/currentStudent/" + id, function(result) {
         
@@ -11,43 +17,42 @@ $(document).ready(function() {
         $("#studentName").text(result.firstName + " " + result.lastName).css({"font-size": "24px", "font-weight": "bold"});
         $(".studentProgress").css("display", "block");
         
-        function activityProg() {
+        function activityProg(id) {
 
-            var unit1Prog = 0;
-            var unit2Prog = 0;
+            let unit1Prog = 0;
+            let unit2Prog = 0;
             
             $.get("/unit1/" + id, function(unit1Result) {
-                var values = Object.values(unit1Result);
+                let values = Object.values(unit1Result);
                 
                 for (let i = 0; i < values.length; i++) {
                     if (values[i] === true) {
                         unit1Prog++;
                     }
                 }
-
+            }).done(function() {
                 if (unit1Prog < 4) {
                     $("#SnCActCount").text(unit1Prog + " / 4");
                     $("#SnC").css("width", (unit1Prog * 25) + "%");
                 }
                 else {
-                    var star = $("<span>").addClass("fa fa-star").css("color", "gold");
-
+                    let star = $("<span>").addClass("fa fa-star").css("color", "gold");
+    
                     $("#SnCActCount").html("<span class='fa fa-star' style='color: gold'></span> COMPLETE ");
                     $("#SnCActCount").append(star);
                     $("#SnC").removeClass("bg-success progress-bar-animated").css("width", (unit1Prog * 25) + "%");
-
+    
                     $.post("/student/update/" + id, {unit1Complete: true}, function(result) {
                         console.log(result);
                     });
                 }
-
+    
                 sessionStorage.setItem('unit1Prog', unit1Prog);
-
             }).then(function() {
                 $.get("/unit2/" + id, function(unit2Result) {
 
                     if (unit2Result) {
-                        var values = Object.values(unit2Result);
+                        let values = Object.values(unit2Result);
                         
                         for (let i = 0; i < values.length; i++) {
                             if (values[i] === true) {
@@ -55,18 +60,18 @@ $(document).ready(function() {
                             }
                         }
                     }
-
+                }).done(function() {
                     if (unit2Prog < 4) {
                         $("#letActCount").text(unit2Prog + " / 4");
                         $("#letRec").css("width", (unit2Prog * 25) + "%");
                     }
                     else {
-                        var star = $("<span>").addClass("fa fa-star").css("color", "gold");
-
+                        let star = $("<span>").addClass("fa fa-star").css("color", "gold");
+    
                         $("#letActCount").html("<span class='fa fa-star' style='color: gold'></span> COMPLETE ");
                         $("#letActCount").append(star);
                         $("#letRec").removeClass("bg-success progress-bar-animated").css("width", (unit2Prog * 25) + "%");
-
+    
                         $.post("/student/update/" + id, {unit2Complete: true}, function(result) {
                             console.log(result);
                         });
@@ -86,7 +91,7 @@ $(document).ready(function() {
 
     $("#nextAct").on("click", function() {
 
-        var updateVal = {
+        let updateVal = {
             unit: sessionStorage.getItem("currentUnit"),
             act: $(this).attr("data-act")
         };
@@ -123,7 +128,7 @@ $(document).ready(function() {
 function checkWindowSize() {
 
     if ($(window).width() <= 991) {
-        $("#toLetters").attr("href", "#");
+        $("#toLetters").attr("href", "");
     } else {
         $("#toLetters").attr("href", "/letter/main");
     }
