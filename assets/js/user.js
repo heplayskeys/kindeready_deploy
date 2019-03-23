@@ -146,11 +146,14 @@ $(document).ready(function () {
                         
                     }).then(function() {
                         $.get("/unit2/" + id, function(result) {
-                            var values = Object.values(result);
-                            
-                            for (let i = 0; i < values.length; i++) {
-                                if (values[i] === true) {
-                                    unit2Prog++;
+
+                            if (result) {
+                                var values = Object.values(result);
+                                
+                                for (let i = 0; i < values.length; i++) {
+                                    if (values[i] === true) {
+                                        unit2Prog++;
+                                    }
                                 }
                             }
                             
@@ -188,7 +191,7 @@ $(document).ready(function () {
     });
 
     // Create New Student
-    $("#sSubmit").on("click",function() {
+    $("#sSubmit").on("click", function() {
         var newStudent = {
             firstName : $("#f1").val().trim(),
             lastName : $("#f2").val().trim(),
@@ -301,14 +304,14 @@ function createUnits(id) {
 
     $.post("/unit1/" + id, function(result) {
         console.log(result);
-    }).catch(function(err){
-        console.log("Whoops! Something went wrong.");
+    }).fail(function(err){
+        alert("Whoops! Something went wrong.");
     });
 
     $.post("/unit2/" + id, function(result) {
         console.log(result);
-    }).catch(function(err){
-        console.log("Whoops! Something went wrong.");
+    }).fail(function(err){
+        alert("Whoops! Something went wrong.");
     });
 
     location.reload();

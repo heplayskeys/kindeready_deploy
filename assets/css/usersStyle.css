@@ -185,10 +185,10 @@ label {
 
     #backToStudents {
         display: none;
-        transform: scale(1.5);
+        transform: scale(1.25);
         float: right;
         margin-top: 4px;
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     #getStartedMsg > p {

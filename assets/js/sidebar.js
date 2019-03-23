@@ -47,11 +47,14 @@ $(document).ready(function() {
 
             }).then(function() {
                 $.get("/unit2/" + id, function(unit2Result) {
-                    var values = Object.values(unit2Result);
-                    
-                    for (let i = 0; i < values.length; i++) {
-                        if (values[i] === true) {
-                            unit2Prog++;
+
+                    if (unit2Result) {
+                        var values = Object.values(unit2Result);
+                        
+                        for (let i = 0; i < values.length; i++) {
+                            if (values[i] === true) {
+                                unit2Prog++;
+                            }
                         }
                     }
 
@@ -91,6 +94,9 @@ $(document).ready(function() {
             unit: sessionStorage.getItem("currentUnit"),
             act: $(this).attr("data-act")
         }
+
+        console.log("UpdateVal", updateVal);
+        console.log("ID", id);
 
         $.ajax({
             type: "PUT",
