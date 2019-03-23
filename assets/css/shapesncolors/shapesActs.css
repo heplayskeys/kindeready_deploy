@@ -213,10 +213,6 @@ select.form-control {
     #qDisplay {
         padding: 0;
     }
-
-    #shapesList select, #colorsList select {
-        font-family: cursive;
-    }
 }
 
 @media screen and (max-width: 575.5px) {
