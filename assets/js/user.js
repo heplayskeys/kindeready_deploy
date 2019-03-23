@@ -309,7 +309,7 @@ function createUnits(id) {
     $.post("/unit1/" + id, function(result) {
         console.log(result);
     }).fail(function(err){
-        alert("Whoops! Something went wrong.");
+        alert("Whoops! Something went wrong.", err);
     });
 
     $.post("/unit2/" + id, function(result) {
