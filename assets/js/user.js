@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-    $('html, body').animate({
-        scrollTop: $('#studentHeader').offset().top
-    }, 'slow');
+    $("html, body").animate({
+        scrollTop: $("#studentHeader").offset().top
+    }, "slow");
 
     checkNumStudents();
     checkWindowSize();
@@ -75,16 +75,21 @@ $(document).ready(function () {
 
         $(".studentList").on("click", function() {
 
+
+
             $(".studentList").not(this).each(function() {
                 $(this).css({"cursor": "pointer", "background-color": "white"});
                 $(this).css("box-shadow", "none");
                 $(".completeCap", this).css("color", "gold");
             });
 
-            $(".studentProgress").css("display", "none");
-
             $(this).css({"background-color": "lemonchiffon", "cursor": "pointer"});
             $(".completeCap", this).css("color", "black");
+
+            $("#SnC").css({"width": 0, "transition": "none"});
+            $("#letRec").css({"width": 0, "transition": "none"});
+            sessionStorage.setItem("unit1Prog", 0);
+            sessionStorage.setItem("unit2Prog", 0);
 
             let id = $(this).attr("data-id");
 
@@ -132,10 +137,10 @@ $(document).ready(function () {
                                 unit1Prog++;
                             }
                         }
-
+                    }).done(function() {
                         if (unit1Prog < 4) {
                             $("#SnCActCount").text(unit1Prog + " / 4");
-                            $("#SnC").css("width", (unit1Prog * 25) + "%");
+                            $("#SnC").css({"width": (unit1Prog * 25) + "%", "transition": "width 1s ease"});
                             $("#SnC").addClass("bg-success progress-bar-animated");
                         }
                         else {
@@ -147,7 +152,6 @@ $(document).ready(function () {
                         }
                         
                         sessionStorage.setItem("unit1Prog", unit1Prog);
-                        
                     }).then(function() {
                         $.get("/unit2/" + id, function(result) {
 
@@ -160,10 +164,10 @@ $(document).ready(function () {
                                     }
                                 }
                             }
-                            
+                        }).done(function() {
                             if (unit2Prog < 4) {
                                 $("#letActCount").text(unit2Prog + " / 4");
-                                $("#letRec").css({"width": (unit2Prog * 25) + "%"});
+                                $("#letRec").css({"width": (unit2Prog * 25) + "%", "transition": "width 1s ease"});
                                 $("#letRec").addClass("bg-success progress-bar-animated");
                             }
                             else {
@@ -173,8 +177,8 @@ $(document).ready(function () {
                                 $("#letActCount").append(star);
                                 $("#letRec").removeClass("bg-success progress-bar-animated").css("width", (unit2Prog * 25) + "%");
                             }
-
-                            sessionStorage.setItem("unit2Prog", unit2Prog);
+    
+                            sessionStorage.setItem("unit2Prog", unit2Prog);                            
                         });
                     });
                 }
@@ -197,23 +201,23 @@ $(document).ready(function () {
     // Create New Student
     $("#sSubmit").on("click", function() {
         var newStudent = {
-            firstName : $("#f1").val().trim(),
-            lastName : $("#f2").val().trim(),
-            age : $("#f3").val().trim(),
-            avatar : $(".avatar input:checked").attr("data-src"),
-            userId : user_id
+            firstName: $("#f1").val().trim(),
+            lastName: $("#f2").val().trim(),
+            age: $("#f3").val().trim(),
+            avatar: $(".avatar input:checked").attr("data-src"),
+            userId: user_id
         };
 
         $.post("/currentStudent", newStudent, function(result) {
             createUnits(result.id);
-
+        }).done(function() {
+            $("f1").empty();
+            $("f2").empty();
+            $("f3").empty();
         }).fail(function(err){
             console.log(err)
-            alert("Please answer following question..")
+            alert("Invalid entry. Please try again.");
         });
-        $("f1").empty();
-        $("f2").empty();
-        $("f3").empty();
     });
 
     $(".exampleModal").keyup(function(e) {
@@ -236,15 +240,15 @@ $(document).ready(function () {
 
         $.post("/student/update/" + id, changeStudent, function(response) {
             console.log(response);
+        }).done(function() {
+            $("ef1").empty();
+            $("ef2").empty();
+            $("ef3").empty();
             location.reload();
         }).fail(function(err){
             console.log(err)
-            alert("Please answer following question..")
+            alert("Invalid entry. Please try again.")
         });
-
-        $("ef1").empty();
-        $("ef2").empty();
-        $("ef3").empty();
     });
 
     // Delete Student
@@ -254,6 +258,7 @@ $(document).ready(function () {
 
         $.post("/student/delete/" + id, function(response) {
             console.log(response);
+        }).done(function() {
             location.reload();
         });
     });
@@ -271,6 +276,10 @@ $(document).ready(function () {
         $(this).css("display", "none");
         $("#students").css("display", "block");
         $(".studentProgress").css("display", "none");
+        $("#SnC").css({"width": 0, "transition": "none"});
+        $("#letRec").css({"width": 0, "transition": "none"});
+        sessionStorage.setItem("unit1Prog", 0);
+        sessionStorage.setItem("unit2Prog", 0);
 
         if ($(window).width() <= 991 && $(window).width() > 767) {
             $("#addStudentBtn").css("display", "block");
@@ -306,19 +315,16 @@ function createUnits(id) {
 
     $.post("/unit1/" + id, function(result) {
         console.log(result);
+    }).done(function() {
+        $.post("/unit2/" + id, function(result) {
+            console.log(result);
+        });
     }).fail(function(err){
         console.log("Whoops! Something went wrong.");
         console.log(err);
+    }).always(function() {
+        location.reload();
     });
-
-    $.post("/unit2/" + id, function(result) {
-        console.log(result);
-    }).fail(function(err){
-        console.log("Whoops! Something went wrong.");
-        console.log(err);
-    });
-
-    location.reload();
 }
 
 $(window).on("resize", function() {
@@ -343,17 +349,11 @@ $(window).on("resize", function() {
     }
 
     if ($(this).width() <= 767) {
-        // $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#addStudentBtn").css("display", "none");
         $("#newStudentBtn").css("display", "inline-block");
     } else {
-        // $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
         $("#newStudentBtn").css("display", "none");
     }
-
-    // if ($(window).width() <= 480) {
-    //     // $(".listedStudent").css("font-size", "15px");
-    // }
 });
 
 function checkWindowSize() {
@@ -368,10 +368,7 @@ function checkWindowSize() {
     }
 
     if ($(window).width() <= 767) {
-        // $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#toLetters").attr("href", "");
-    } else {
-        // $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
     }
 
     if ($(window).width() <= 480) {

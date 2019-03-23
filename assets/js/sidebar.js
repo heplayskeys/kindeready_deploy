@@ -90,13 +90,16 @@ $(document).ready(function() {
             unit: sessionStorage.getItem("currentUnit"),
             act: $(this).attr("data-act")
         };
+        runUpdate(updateVal);
+    });
 
+    function runUpdate(updateVal) {
         $.ajax({
             type: "PUT",
             url: "/activity/" + id,
             data: updateVal
         });
-    });
+    };
 
     // Logout or Change Student Storage Clear
     $("#change").on("click", function() {
