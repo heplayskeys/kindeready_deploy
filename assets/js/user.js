@@ -7,6 +7,7 @@ $(document).ready(function () {
     checkNumStudents();
     checkWindowSize();
     let userLogin = JSON.parse(localStorage.getItem("userLogin"));
+    sessionStorage.clear();
     console.log(userLogin);
     let user_id = userLogin.id;
     let userName = userLogin.firstName;
