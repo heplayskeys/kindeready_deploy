@@ -6,52 +6,52 @@ $(document).ready(function () {
 
     checkNumStudents();
     checkWindowSize();
-    var userLogin = JSON.parse(localStorage.getItem("userLogin"));
+    let userLogin = JSON.parse(localStorage.getItem("userLogin"));
     console.log(userLogin);
-    var user_id = userLogin.id;
-    var userName = userLogin.firstName;
+    let user_id = userLogin.id;
+    let userName = userLogin.firstName;
 
     // Welcome Greeting
     $("#loginUser").text(userName);
 
     $.get("/student/create/" + user_id, function(result) {
 
-        for (var i = 0 ; i < result.length ; i++) {
+        for (let i = 0 ; i < result.length ; i++) {
 
             students.push(result[i]);
 
-            var id = result[i].id;
-            var firstName = result[i].firstName;
-            var lastName = result[i].lastName;
-            var unit1Complete = result[i].unit1Complete;
-            var unit2Complete = result[i].unit2Complete;
+            let id = result[i].id;
+            let firstName = result[i].firstName;
+            let lastName = result[i].lastName;
+            let unit1Complete = result[i].unit1Complete;
+            let unit2Complete = result[i].unit2Complete;
 
             console.log(unit1Complete, unit2Complete);
 
             // Add Change Info Button
-            var buttonc = $("<button>");
+            let buttonc = $("<button>");
             buttonc.attr("data-id", id);
             buttonc.attr("data-toggle","modal");
             buttonc.attr("data-target","#exampleModal1");
             buttonc.addClass("btn btn-sm btn-primary changeSt fa fa-pencil-square-o change-btn");
             
             // Add Delete Button
-            var buttond = $("<button>");
+            let buttond = $("<button>");
             buttond.attr("data-id", id);
             buttond.addClass("btn btn-sm btn-danger fa fa-trash-o deleteSt");
 
-            var studentText = $("<span>").html("  " + firstName + " " + lastName + "\xa0\xa0").css({"font-weight": "bold", "display": "inline-block", "vertical-align": "middle",  "white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}).addClass("listedStudent");
+            let studentText = $("<span>").html("  " + firstName + " " + lastName + "\xa0\xa0").css({"font-weight": "bold", "display": "inline-block", "vertical-align": "middle",  "white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}).addClass("listedStudent");
 
             // Create Avatar
-            var studentAvatar = $("<img>").attr("src", result[i].avatar);
+            let studentAvatar = $("<img>").attr("src", result[i].avatar);
 
-            var student = $("<li>").addClass("studentList").attr("data-id", id).css({"border": "1px solid black", "border-radius": "25px"});
+            let student = $("<li>").addClass("studentList").attr("data-id", id).css({"border": "1px solid black", "border-radius": "25px"});
             
-            var lineBreak = $("<br>");
+            let lineBreak = $("<br>");
             
             if (unit1Complete && unit2Complete) {
 
-                var completeCap = $("<span>").addClass("fa fa-star completeCap");
+                let completeCap = $("<span>").addClass("fa fa-star completeCap");
                 student.append(studentAvatar);
                 student.append(studentText);
                 student.prepend(completeCap);
@@ -86,7 +86,7 @@ $(document).ready(function () {
             $(this).css({"background-color": "lemonchiffon", "cursor": "pointer"});
             $(".completeCap", this).css("color", "black");
 
-            var id = $(this).attr("data-id");
+            let id = $(this).attr("data-id");
 
             $.get("/currentStudent/" + id, function(result) {
 
@@ -117,15 +117,15 @@ $(document).ready(function () {
                 }
 
                 // Update Student Progress
-                var unit1Prog = 0;
-                var unit2Prog = 0;
+                let unit1Prog = 0;
+                let unit2Prog = 0;
                     SnCProg = 0;
                     letRecProg = 0;
 
                 function activityProg(id) {
                 
                     $.get("/unit1/" + id, function(unit1Result) {
-                        var values = Object.values(unit1Result);
+                        let values = Object.values(unit1Result);
                         
                         for (let i = 0; i < values.length; i++) {
                             if (values[i] === true) {
@@ -139,7 +139,7 @@ $(document).ready(function () {
                             $("#SnC").addClass("bg-success progress-bar-animated");
                         }
                         else {
-                            var star = $("<span>").addClass("fa fa-star").css("color", "gold");
+                            let star = $("<span>").addClass("fa fa-star").css("color", "gold");
         
                             $("#SnCActCount").html("<span class='fa fa-star' style='color: gold'></span> COMPLETE ");
                             $("#SnCActCount").append(star);
@@ -152,7 +152,7 @@ $(document).ready(function () {
                         $.get("/unit2/" + id, function(result) {
 
                             if (result) {
-                                var values = Object.values(result);
+                                let values = Object.values(result);
                                 
                                 for (let i = 0; i < values.length; i++) {
                                     if (values[i] === true) {
@@ -167,7 +167,7 @@ $(document).ready(function () {
                                 $("#letRec").addClass("bg-success progress-bar-animated");
                             }
                             else {
-                                var star = $("<span>").addClass("fa fa-star").css("color", "gold");
+                                let star = $("<span>").addClass("fa fa-star").css("color", "gold");
                                 
                                 $("#letActCount").html("<span class='fa fa-star' style='color: gold'></span> COMPLETE ");
                                 $("#letActCount").append(star);
@@ -225,9 +225,7 @@ $(document).ready(function () {
     // Update Student Info
     $("#eSubmit").on("click", function() {
 
-        var id = sessionStorage.getItem("studentId");
-
-        console.log(id);
+        let id = sessionStorage.getItem("studentId");
         
         var changeStudent = {
             firstName: $("#ef1").val(),
@@ -252,7 +250,7 @@ $(document).ready(function () {
     // Delete Student
     $(document).on("click", ".deleteSt", function(event) {
 
-        var id = $(this).attr("data-id");
+        let id = $(this).attr("data-id");
 
         $.post("/student/delete/" + id, function(response) {
             console.log(response);
