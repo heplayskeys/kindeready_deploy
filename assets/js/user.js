@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    $('html, body').animate({
+        scrollTop: $('#studentHeader').offset().top
+    }, 'slow');
+
     checkNumStudents();
     checkWindowSize();
     var userLogin = JSON.parse(localStorage.getItem("userLogin"));
@@ -339,17 +343,17 @@ $(window).on("resize", function() {
     }
 
     if ($(this).width() <= 767) {
-        $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
+        // $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#addStudentBtn").css("display", "none");
         $("#newStudentBtn").css("display", "inline-block");
     } else {
-        $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
+        // $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
         $("#newStudentBtn").css("display", "none");
     }
 
-    if ($(window).width() <= 480) {
-        // $(".listedStudent").css("font-size", "15px");
-    }
+    // if ($(window).width() <= 480) {
+    //     // $(".listedStudent").css("font-size", "15px");
+    // }
 });
 
 function checkWindowSize() {
@@ -364,10 +368,10 @@ function checkWindowSize() {
     }
 
     if ($(window).width() <= 767) {
-        $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
+        // $("#clickToBegin").html("<button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button>");
         $("#toLetters").attr("href", "#");
     } else {
-        $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
+        // $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
     }
 
     if ($(window).width() <= 480) {
