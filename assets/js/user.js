@@ -295,8 +295,8 @@ function checkNumStudents() {
         $("#firstStudentAdd").hide();
     }
 
-    if ($("#currentStudent li").length > 5) {
-        $("#currentStudent").css({"max-height": "60vh", "overflow-y": "auto"});
+    if ($("#currentStudent li").length > 4) {
+        $("#studentPane").css({"overflow-y": "auto"});
     }
 }
 
@@ -343,7 +343,7 @@ $(window).on("resize", function() {
         $("#addStudentBtn").css("display", "none");
         $("#newStudentBtn").css("display", "inline-block");
     } else {
-        $("#clickToBegin").htme("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
+        $("#clickToBegin").html("<h3 id='clickToBegin'>Click <button id='firstStudent' type='button' class='btn btn-outline-primary easyRead' data-toggle='modal' data-target='#exampleModal'>Add Student</button> to Begin</h3>");
         $("#newStudentBtn").css("display", "none");
     }
 

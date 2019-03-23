@@ -22,6 +22,7 @@ label {
 
 #studentPane {
     height: 72vh;
+    /* overflow-y: auto; */
 }
 
 #foot {
