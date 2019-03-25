@@ -1,6 +1,6 @@
-$(document).ready(function() {
+const id = window.sessionStorage.studentId;
 
-    const id = window.sessionStorage.studentId;
+$(document).ready(function() {
     
     $(".studentProgress").css("display", "none");
     
@@ -117,12 +117,13 @@ $(document).ready(function() {
         clearStorage();
     });
 
+    
+    checkWindowSize()
+});
+
     $(window).on("resize", function() {
         checkWindowSize();
     });
-
-    checkWindowSize();
-});
 
 function clearStorage() {
     sessionStorage.removeItem("studentId");
