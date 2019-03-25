@@ -108,14 +108,11 @@ $(document).ready(function() {
 
     // Logout or Change Student Storage Clear
     $("#change").on("click", function() {
-        sessionStorage.removeItem("studentId");
-        sessionStorage.removeItem("unit1Prog");
-        sessionStorage.removeItem("unit2Prog");
-        sessionStorage.removeItem("currentUnit");
+        clearStorage();
     });
 
     $("#logout").on("click", function() {
-        sessionStorage.clear();
+        clearStorage();
     });
 
     $(window).on("resize", function() {
@@ -124,6 +121,13 @@ $(document).ready(function() {
 
     checkWindowSize();
 });
+
+function clearStorage() {
+    sessionStorage.removeItem("studentId");
+    sessionStorage.removeItem("unit1Prog");
+    sessionStorage.removeItem("unit2Prog");
+    sessionStorage.removeItem("currentUnit");
+};
 
 function checkWindowSize() {
 

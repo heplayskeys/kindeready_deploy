@@ -5,18 +5,19 @@ $(document).ready(function() {
     start();
     
     $("select").change(function() {
-        var id = this.id
+        var selectId = this.id
+
         if ($(this).val() === this.name) {
-            $("#incorrect" + id).hide();
-            $("#correct" + id).show();
+            $("#incorrect" + selectId).hide();
+            $("#correct" + selectId).show();
             $(this).hide();
             progress++;
             checkProgress();
         } else  {
-            $("#incorrect" + id).show();
+            $("#incorrect" + selectId).show();
 
             if ($(window).width() <= 767) {
-                $("#" + id).css("width", "98px");
+                $("#" + selectId).css("width", "98px");
             }
         }
     });
