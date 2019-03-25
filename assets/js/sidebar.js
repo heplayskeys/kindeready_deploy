@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    const id = sessionStorage.getItem("studentId");
+    const id = window.sessionStorage.studentId;
     
     $(".studentProgress").css("display", "none");
     
@@ -92,7 +92,7 @@ $(document).ready(function() {
     $("#nextAct").on("click", function() {
 
         let updateVal = {
-            unit: sessionStorage.getItem("currentUnit"),
+            unit: window.sessionStorage.currentUnit,
             act: $(this).attr("data-act")
         };
         runUpdate(updateVal);
@@ -101,7 +101,7 @@ $(document).ready(function() {
     function runUpdate(updateVal) {
         $.ajax({
             type: "PUT",
-            url: "/activity/" + id,
+            url: "/activity/" + window.sessionStorage.studentId,
             data: updateVal
         });
     };
