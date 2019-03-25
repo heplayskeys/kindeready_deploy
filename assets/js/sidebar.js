@@ -28,12 +28,6 @@ $(document).ready(function() {
                 if (unit1Prog < 4) {
                     $("#SnCActCount").text(unit1Prog + " / 4");
                     $("#SnC").css("width", (unit1Prog * 25) + "%");
-
-                    if ($(window).width() <= 767) {
-                        $("html, body").animate({
-                            scrollTop: $(".title").offset().top
-                        }, "slow");
-                    };
                 }
                 else {
                     let star = $("<span>").addClass("fa fa-star").css("color", "gold");
@@ -64,6 +58,12 @@ $(document).ready(function() {
                     if (unit2Prog < 4) {
                         $("#letActCount").text(unit2Prog + " / 4");
                         $("#letRec").css("width", (unit2Prog * 25) + "%");
+
+                        if ($(window).width() <= 767) {
+                            $("html, body").animate({
+                                scrollTop: $(".title").offset().top
+                            }, "slow");
+                        };
                     }
                     else {
                         let star = $("<span>").addClass("fa fa-star").css("color", "gold");
