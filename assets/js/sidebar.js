@@ -123,9 +123,9 @@ $(document).ready(function() {
     checkWindowSize()
 });
 
-    $(window).on("resize", function() {
-        checkWindowSize();
-    });
+    // $(window).on("resize", function() {
+    //     checkWindowSize();
+    // });
 
 function clearStorage() {
     sessionStorage.removeItem("studentId");
