@@ -328,21 +328,20 @@ function createUnits(id) {
     });
 }
 
-$(window).on("resize", function() {
+// $(window).on("resize", function() {
 
-    if ($(this).width() <= 991) {
-        $("#toLetters").attr("href", "");
+//     if ($(this).width() <= 991) {
+//         $("#toLetters").attr("href", "");
+//         $(".studentList").each(function() {
+//             $(this).css({"cursor": "pointer", "background-color": "white"});
+//             $(this).css("box-shadow", "none");
+//         });
 
-        $(".studentList").each(function() {
-            $(this).css({"cursor": "pointer", "background-color": "white"});
-            $(this).css("box-shadow", "none");
-        });
-
-    } else {
-        $("#studentInfo").css("border-left", "1px dotted black");
-        $("#toLetters").attr("href", "/letter/main");
-    }
-});
+//     } else {
+//         $("#studentInfo").css("border-left", "1px dotted black");
+//         $("#toLetters").attr("href", "/letter/main");
+//     }
+// });
 
 function checkWindowSize() {
     if ($(window).width() <= 991) {

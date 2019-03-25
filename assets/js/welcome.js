@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".createAccount input").keyup(function(e) {
         if (e.keyCode === 13) {
             $("#submit").click();
-        }
+        };
     });
 
     $("#submit").on("click", function (event) {
@@ -27,15 +27,15 @@ $(document).ready(function () {
                 if (result) {
                     console.log(result);
                     localStorage.setItem("userLogin", JSON.stringify(result));
-                    window.location.href = "/student"
-                } 
+                    window.location.href = "/student";
+                };
             }).fail(function(err){
                 console.log(err.name);
                 alert(err.responseText);
                 $("#exampleModal").show();
             });
         } else {
-            alert("Password doesn't match, please re-enter password..")
+            alert("Password doesn't match, please re-enter password..");
             location.reload();
         }
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
     $(".signInAccount input").keyup(function(e) {
         if (e.keyCode === 13) {
             $("#signIn").click();
-        }
+        };
     });
 
     $("#signIn").on("click",function(event) {
@@ -58,15 +58,16 @@ $(document).ready(function () {
         var userLogin = {
             email : $("#semail").val(),
             password : $("#spassword").val()
-        }
-        $.post("/login", userLogin ,function(data) {
+        };
+
+        $.post("/login", userLogin, function(data) {
           if (data) {
             localStorage.setItem("userLogin", JSON.stringify(data));
-            window.location.href = "/student"
+            window.location.href = "/student";
           } 
         })
         .fail(function(err) {
-            alert(err.responseText)
+            alert(err.responseText);
         });
     });
 });

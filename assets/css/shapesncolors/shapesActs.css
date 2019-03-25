@@ -87,7 +87,7 @@ body {
 }
 
 .gamePiece {
-    box-shadow: 0 4px 6px -6px #888888;
+    border: none;
 }
 
 .brush {

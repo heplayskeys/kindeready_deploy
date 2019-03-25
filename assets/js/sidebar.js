@@ -60,7 +60,7 @@ $(document).ready(function() {
                         $("#letActCount").text(unit2Prog + " / 4");
                         $("#letRec").css("width", (unit2Prog * 25) + "%");
 
-                        if ($(window).width() <= 767) {
+                        if ($(window).width() <= 767 && unit1Prog < 4) {
                             $("html, body").animate({
                                 scrollTop: $(".title").offset().top
                             }, "slow");
