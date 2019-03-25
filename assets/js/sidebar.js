@@ -84,6 +84,8 @@ $(document).ready(function() {
         }
 
         activityProg(id);
+    }).done(function() {
+        console.log("Student Set");
     });
 
     $(".studentProgress a").on("click", function() {
@@ -104,8 +106,8 @@ $(document).ready(function() {
             type: "PUT",
             url: "/activity/" + window.sessionStorage.studentId,
             data: updateVal
-        }).then(function(response) {
-            console.log(response);
+        }).done(function() {
+            console.log("Way to Go!");
         });
     };
 

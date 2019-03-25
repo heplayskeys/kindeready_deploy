@@ -1,6 +1,6 @@
 // Requiring our models
 var db = require("../models");
-path = require('path');
+var path = require('path');
 var bcrypt = require("bcryptjs");
 
 module.exports = function(app) {
@@ -126,6 +126,9 @@ module.exports = function(app) {
             include: [db.User]
         }).then(function(result) {
             res.json(result);
+        })
+        .catch(function(err){
+            res.status(500).json(err);
         });
     });
 
@@ -133,17 +136,20 @@ module.exports = function(app) {
     app.get("/currentStudent/:id",function(req,res) {
         db.Student.findOne({
             where: { 
-                id : req.params.id 
+                id: req.params.id 
             },
             include: [db.User] 
         })
         .then(function(result) {
-            res.json(result)
+            res.json(result);
+        })
+        .catch(function(err){
+            res.status(500).json(err);
         });
     });
 
     // create a new student
-    app.post("/currentStudent",function(req,res) {
+    app.post("/currentStudent", function(req,res) {
         db.Student.create({
             firstName : req.body.firstName,
             lastName : req.body.lastName,
@@ -198,7 +204,10 @@ module.exports = function(app) {
     app.get("/unit1/:id",function(req,res) {
         db.Unit1.findOne({where: {id: req.params.id}})
         .then(function(result) {
-            res.json(result)
+            res.json(result);
+        })
+        .catch(function(err){
+            res.status(500).json(err);
         });
     });
 
@@ -206,7 +215,10 @@ module.exports = function(app) {
     app.get("/unit2/:id",function(req,res) {
         db.Unit2.findOne({where: {id: req.params.id}})
         .then(function(result) {
-            res.json(result)
+            res.json(result);
+        })
+        .catch(function(err){
+            res.status(500).json(err);
         });
     });
 
