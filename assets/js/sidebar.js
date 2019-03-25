@@ -1,11 +1,12 @@
-const id = window.sessionStorage.studentId;
+let id = window.sessionStorage.studentId;
+    id = id.toString();
 
 $(document).ready(function() {
     
     $(".studentProgress").css("display", "none");
     
     $.get("/currentStudent/" + id, function(result) {
-        
+
         // Show Student Information
         $("#studentAvatar").attr("src", result.avatar);
         $("#studentName").text(result.firstName + " " + result.lastName).css({"font-size": "24px", "font-weight": "bold"});
@@ -15,7 +16,7 @@ $(document).ready(function() {
 
             let unit1Prog = 0;
             let unit2Prog = 0;
-            
+
             $.get("/unit1/" + id, function(unit1Result) {
                 let values = Object.values(unit1Result);
                 
@@ -116,7 +117,6 @@ $(document).ready(function() {
     $("#logout").on("click", function() {
         clearStorage();
     });
-
     
     checkWindowSize()
 });
