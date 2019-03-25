@@ -68,7 +68,6 @@ $(document).ready(function () {
             }
 
             checkNumStudents();
-            // checkWindowSize();
         }
 
         $(".studentList").on("mouseover", function() {
@@ -332,11 +331,6 @@ function createUnits(id) {
 $(window).on("resize", function() {
 
     if ($(this).width() <= 991) {
-        // $("#addStudentBtn").html("Add").css("display", "block");
-        // $("#students").css("display", "block");
-        // $(".studentProgress").css("display", "none");
-        // $("#newStudentBtn").css("display", "none");
-        // $("#backToStudents").css("display", "none");
         $("#toLetters").attr("href", "");
 
         $(".studentList").each(function() {
@@ -345,16 +339,8 @@ $(window).on("resize", function() {
         });
 
     } else {
-        // $("#addStudentBtn").html("Add Student").css("display", "block");
         $("#studentInfo").css("border-left", "1px dotted black");
         $("#toLetters").attr("href", "/letter/main");
-    }
-
-    if ($(this).width() <= 767) {
-        // $("#addStudentBtn").css("display", "none");
-        // $("#newStudentBtn").css("display", "inline-block");
-    } else {
-        // $("#newStudentBtn").css("display", "none");
     }
 });
 

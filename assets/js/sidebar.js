@@ -123,10 +123,6 @@ $(document).ready(function() {
     checkWindowSize()
 });
 
-    // $(window).on("resize", function() {
-    //     checkWindowSize();
-    // });
-
 function clearStorage() {
     sessionStorage.removeItem("studentId");
     sessionStorage.removeItem("unit1Prog");
