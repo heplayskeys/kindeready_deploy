@@ -1,7 +1,7 @@
+var progress = 0;
+
 $(document).ready(function() {
 
-    var progress = 0;
-    
     start();
     
     $("select").change(function() {

@@ -213,10 +213,8 @@ module.exports = function(app) {
     // Update Unit Activity values
     app.put("/activity/:id", function(req, res) {
 
-        console.log("body", req.body);
-        console.log("params", req.params);
-
         var act = req.body.act;
+
         if (parseInt(req.body.unit) === 1) {
             switch (act) {
                 case "act1":

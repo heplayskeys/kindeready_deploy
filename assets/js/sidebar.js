@@ -103,6 +103,8 @@ $(document).ready(function() {
             type: "PUT",
             url: "/activity/" + window.sessionStorage.studentId,
             data: updateVal
+        }).then(function(response) {
+            console.log(response);
         });
     };
 
