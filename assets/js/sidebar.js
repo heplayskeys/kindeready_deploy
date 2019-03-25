@@ -102,6 +102,9 @@ $(document).ready(function() {
     });
 
     function runUpdate(updateVal) {
+
+        alert($("#nextAct").attr("data-act"));
+        
         $.ajax({
             type: "PUT",
             url: "/activity/" + window.sessionStorage.studentId,
