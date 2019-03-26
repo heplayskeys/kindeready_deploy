@@ -23,7 +23,7 @@ $(document).ready(function() {
     });
     
     function start() {
-        $("#nextAct").hide();
+        $("#nextAct").attr("disabled", true);
         for ( var i = 1 ; i < 9 ; i++ ) {
             $("#incorrect" + i).hide();
             $("#correct" + i).hide();
@@ -32,7 +32,7 @@ $(document).ready(function() {
     
     function checkProgress() {
         if (progress === 8) {
-            $("#nextAct").show();
+            $("#nextAct").attr("disabled", false).removeClass("btn-outline-dark").addClass("btn-success");
         }
     }
 });

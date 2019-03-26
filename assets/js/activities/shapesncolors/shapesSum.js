@@ -4,6 +4,9 @@ var finalArray;
 var firstSequence;
 
 $(document).ready(function() {
+
+  $("#nextAct").attr("disabled", true).removeClass("btn-outline-success").addClass("btn-outline-dark");
+
   var red = $("<img>").attr("src", "/images/shapes_colors/red_apple.jpeg").addClass("img-thumbnail gamePiece");
   var green = $("<img>").attr("src", "/images/shapes_colors/green_apple.jpeg").addClass("img-thumbnail gamePiece");
   var yellow = $("<img>").attr("src", "/images/shapes_colors/yellow_eleph.png").addClass("img-thumbnail gamePiece");
@@ -150,7 +153,7 @@ $(document).ready(function() {
     if (finalArray[0] == all_images[0] && finalArray[1] == all_images[1] && finalArray[2] == all_images[2] && finalArray[3] == all_images[3]) {
       $("#correctModal").modal("show");
       clearInterval(count);
-      $("#nextAct").show();
+      $("#nextAct").attr("disabled", false).removeClass("btn-outline-dark").addClass("btn-success");
       $('#playAgain').click(function() {
         clearInterval(count);
         Time = 90;

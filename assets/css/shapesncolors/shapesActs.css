@@ -115,6 +115,10 @@ select.form-control {
     vertical-align: middle;
 }
 
+#main {
+    padding-top: 5px;
+}
+
 @media screen and (max-width: 1200px) {
     .activities {
         padding: 0 180px;
@@ -141,7 +145,6 @@ select.form-control {
     #studentSidebar {
         border-style: solid;
         margin-bottom: 15px;
-        margin-top: 10px;
     }
 
     #activityList {
@@ -171,7 +174,6 @@ select.form-control {
 
     #actSection {
         border-style: solid;
-        margin-bottom: 10px;
     }
 
     #shapesList ul, #colorsList ul {
@@ -211,6 +213,10 @@ select.form-control {
 
     #qDisplay {
         padding: 0;
+    }
+
+    #main {
+        padding-top: 0;
     }
 }
 

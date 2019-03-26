@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $("#nextAct").attr("disabled", true);
+
     // Start Activity Button
     $("#start").on("click", function() {
         $(this).css("display", "none");
@@ -92,12 +94,11 @@ function checkNumCorrect() {
 
     if (numCorrect === 6) {
 
-        if ($(window).width() <= 575.5) {
-            $("#nextAct").css("display", "initial");
-            $("#nextReady").css("display", "block");
-        } else {
-            $("#nextAct").css("display", "block");
-            $("#nextReady").css("display", "block");
-        }
+        $("#nextAct").attr("disabled", false).removeClass("btn-outline-dark").addClass("btn-success");
+        $("#nextReady").css("display", "block");
+    }
+
+    else {
+        $("#nextAct").attr("disabled", true);
     }
 }
