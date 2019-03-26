@@ -6,6 +6,8 @@ var remaining_letters = 26;
 
 function init() {
 
+    $("#nextAct").attr("disabled", true);
+
     // Set up the answer array
     answerArray = [];
     for (var i = 0; i < word.length; i++) {
@@ -45,7 +47,7 @@ function guessOne() {
         // if no remaining letters, hurray, you won
         if (remaining_letters === 0) {
             showThisMessage = "Great Job! You know the alphabet!!";
-            $("#nextAct").show();
+            $("#nextAct").attr("disabled", false).removeClass("btn-outline-dark").addClass("btn-success");
         }
 
         // (otherwise) if we have no message, wrong guess 

@@ -91,7 +91,7 @@ label {
     padding: 0;
     position: absolute;
     padding: 0;
-    bottom: 200px;
+    bottom: 400px;
 }
 
 .beginh3 {
@@ -256,6 +256,10 @@ label {
 
     .avatar img {
         width: 60%;
+    }
+
+    #firstStudentAdd {
+        bottom: 200px;
     }
 }
 

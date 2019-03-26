@@ -30,12 +30,11 @@ $(document).ready(function () {
                     window.location.href = "/student";
                 };
             }).fail(function(err){
-                console.log(err.name);
-                alert(err.responseText);
+                alert("Failed to create account. Please try again.");
                 $("#exampleModal").show();
             });
         } else {
-            alert("Password doesn't match, please re-enter password..");
+            alert("Passwords do not match, please re-enter password.");
             location.reload();
         }
 
@@ -67,7 +66,7 @@ $(document).ready(function () {
           } 
         })
         .fail(function(err) {
-            alert(err.responseText);
+            alert("Invalid email/password, please try again.");
         });
     });
 });

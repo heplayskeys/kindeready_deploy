@@ -40,13 +40,13 @@ module.exports = function(app) {
      // POST route for saving a new user
     app.post("/user", function (req, res) {
         db.User.findOne({
-             where : {
-                 email : req.body.email
-             }
+             where: {
+                 email: req.body.email
+            }
         })
         .then(function(result) {
             if (result) {
-                res.status(404).send("This email is already exist..");
+                res.status(404).send("Invalid email. Account already exists. Please try again.");
             } else {
                 bcrypt.hash(req.body.password, 10 , function(err,hash) {
                     if (err) throw err;
@@ -62,9 +62,9 @@ module.exports = function(app) {
                     })
                     .catch(function (err) {
                         if (err.errors[0].message === "Validation isEmail on email failed") {
-                            res.status(500).send("Please enter a valid email format..");
+                            res.status(500).send("Please enter a valid email format.");
                         } else {
-                            res.status(500).send("Please input all of the following questions..");
+                            res.status(500).send("Please complete all of the required fields.");
                         }
                     });
                 });     
@@ -108,11 +108,11 @@ module.exports = function(app) {
                             res.send(userLogin);
                         });
                 } else {
-                    res.status(404).send("Incorrect password");
+                    res.status(404).send("Invalid email/password, please try again.");
                 }
             });
         }).catch(function(err) {
-            res.status(404).send("Incorrect email");
+            res.status(404).send("Invalid email/password, please try again.");
         })
     });
 
@@ -201,7 +201,7 @@ module.exports = function(app) {
     });
 
     // Pull Unit1 Activity Values
-    app.get("/unit1/:id",function(req,res) {
+    app.get("/unit1/:id", function(req, res) {
         db.Unit1.findOne({where: {id: req.params.id}})
         .then(function(result) {
             res.json(result);
@@ -212,7 +212,7 @@ module.exports = function(app) {
     });
 
     // Pull Unit2 Activity Values
-    app.get("/unit2/:id",function(req,res) {
+    app.get("/unit2/:id", function(req, res) {
         db.Unit2.findOne({where: {id: req.params.id}})
         .then(function(result) {
             res.json(result);
@@ -285,7 +285,7 @@ module.exports = function(app) {
             }
         }
 
-        else if (parseInt(req.body.unit) === 2) {
+        if (parseInt(req.body.unit) === 2) {
             switch (req.body.act) {
                 case "act1":
                     db.Unit2.update({

@@ -48,6 +48,9 @@ document.body.onload = startGame();
 
 // start a new play 
 function startGame() {
+
+    $("#nextAct").attr("disabled", true);
+    
     // shuffle deck
     cards = shuffle(cards);
     // remove all exisiting classes from each card
@@ -189,7 +192,7 @@ function congratulations() {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        $("#nextAct").show();
+        $("#nextAct").attr("disabled", false).removeClass("btn-outline-dark").addClass("btn-success");
 
         // modal
         modal.classList.add("show");
