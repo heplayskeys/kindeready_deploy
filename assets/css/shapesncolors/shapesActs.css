@@ -115,7 +115,7 @@ select.form-control {
     vertical-align: middle;
 }
 
-@media screen and (max-width: 1199.5px) {
+@media screen and (max-width: 1200px) {
     .activities {
         padding: 0 180px;
     }
@@ -301,6 +301,23 @@ select.form-control {
 
     .counter h1 {
         font-size: 1.75rem;
+    }
+
+    .prePost {
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+
+    #pre {
+        display: contents;
+    }
+
+    #post {
+        display: contents;
+    }
+
+    #placeholder {
+        display: none;
     }
 }
 

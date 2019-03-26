@@ -108,8 +108,6 @@ $(document).ready(function() {
             type: "PUT",
             url: "/activity/" + window.sessionStorage.studentId,
             data: updateVal
-        }).done(function() {
-            console.log("Way to Go!");
         });
     };
 
