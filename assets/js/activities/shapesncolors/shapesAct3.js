@@ -25,8 +25,10 @@ $(document).ready(function() {
     });
 
     $("#checkAnswer").on("click", function() {
-        var studentAnswer = $("#shapeChoice").attr("data-choice") + "_" + $("#colorChoice").attr("data-choice");
-        var correctAnswer = $("#questionBlock").attr("data-answer");
+        let studentAnswer = $("#shapeChoice").attr("data-choice") + "_" + $("#colorChoice").attr("data-choice");
+        console.log(studentAnswer);
+        let correctAnswer = $("#questionBlock").attr("data-answer");
+        console.log(correctAnswer);
         checkAnswer(studentAnswer, correctAnswer);
     });
 
@@ -61,18 +63,20 @@ function activity3() {
 
 function checkAnswer(studentAnswer, correctAnswer) {
 
-    var correctSplit = correctAnswer.split("_");
-    var correctShape = correctSplit[0];
-    var correctColor = correctSplit[1];
+    let correctSplit = correctAnswer.split("_");
+    let correctShape = correctSplit[0];
+    let correctColor = correctSplit[1];
     
-    var studentSplit = studentAnswer.split("_");
-    var studentShape = studentSplit[0];
-    var studentColor = studentSplit[1];
+    let studentSplit = studentAnswer.split("_");
+    let studentShape = studentSplit[0];
+    let studentColor = studentSplit[1];
     
     if (studentAnswer === correctAnswer) {
         $("#correctModal").modal("show");
         numCorrect++;
         checkNumCorrect();
+        $("#shapeChoice").attr("data-choice", "");
+        $("#colorChoice").attr("data-choice", "");
     }
     else {
         $("#incorrectModal").modal("show");
