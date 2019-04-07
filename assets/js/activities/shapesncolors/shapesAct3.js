@@ -26,9 +26,7 @@ $(document).ready(function() {
 
     $("#checkAnswer").on("click", function() {
         let studentAnswer = $("#shapeChoice").attr("data-choice") + "_" + $("#colorChoice").attr("data-choice");
-        console.log(studentAnswer);
         let correctAnswer = $("#questionBlock").attr("data-answer");
-        console.log(correctAnswer);
         checkAnswer(studentAnswer, correctAnswer);
     });
 
