@@ -19,14 +19,14 @@
   },
   "homepage": "https://github.com/heplayskeys/kindeready_deploy#readme",
   "dependencies": {
-    "bcrypt": "^3.0.3",
+    "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.6.4",
+    "express-session": "^1.16.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
     "path": "^0.12.7",
-    "sequelize": "^4.43.1"
+    "sequelize": "^4.44.0"
   },
   "devDependencies": {}
 }
